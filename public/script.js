@@ -147,12 +147,14 @@ const setPlayVideo = () => {
 document.getElementById("invite-button").addEventListener("click", getURL);
 
 function getURL() {
+  console.log("test1");
   const c_url = window.location.href;
   copyToClipboard(c_url);
   alert("Url Copied to Clipboard,\nShare it with your Friends!\nUrl: " + c_url);
 }
 
 function copyToClipboard(text) {
+  console.log("test2");
   var dummy = document.createElement("textarea");
   document.body.appendChild(dummy);
   dummy.value = text;
@@ -160,7 +162,6 @@ function copyToClipboard(text) {
   document.execCommand("copy");
   document.body.removeChild(dummy);
 }
-
 // End Call
 // document
 //   .getElementById("leave_meetingButton")
@@ -176,3 +177,8 @@ function copyToClipboard(text) {
 //   // window.location.href = "/";
 
 // }
+document.getElementById("end-button").addEventListener("click", endCall);
+
+function endCall() {
+  window.location.href = "/";
+}

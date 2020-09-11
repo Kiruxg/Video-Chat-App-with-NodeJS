@@ -14,8 +14,14 @@ app.use("/peerjs", peerServer);
 //endpoints
 app.get("/", (req, res) => {
   //   res.status(200).send("hello world");
-  res.redirect(`/${uuidv4()}`); //random id generator
+  res.render("home");
+
+  // res.redirect(`/${uuidv4()}`); //random id generator
 });
+app.get("/create-room/", (req, res) => {
+  res.redirect(`/${uuidv4()}`);
+});
+
 app.get("/:room", (req, res) => {
   res.render("room", { roomId: req.params.room });
 });
