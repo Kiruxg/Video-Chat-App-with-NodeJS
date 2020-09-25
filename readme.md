@@ -19,7 +19,9 @@ Clone this repo
 
     git clone https://github.com/Kiruxg/Video-Chat-App-with-NodeJS.git
 
-    npm i to install all dependencies
+Install all dependencies
+
+    npm i
 
 ## How to use
 
