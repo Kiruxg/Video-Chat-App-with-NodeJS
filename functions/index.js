@@ -3,6 +3,7 @@ const express = require("express")
 const { v4: uuidv4 } = require("uuid")
 const app = express()
 const server = require("http").Server(app) //server for socketio
+// const port = process.env.PORT || 5001 //heroku dev env or local env
 const io = require("socket.io")(server)
 const { ExpressPeerServer } = require("peer") //realtime browser communication
 const peerServer = ExpressPeerServer(server, {
@@ -37,4 +38,5 @@ io.on("connection", socket => {
     })
   })
 })
+// server.listen(port)
 exports.app = functions.https.onRequest(app)
