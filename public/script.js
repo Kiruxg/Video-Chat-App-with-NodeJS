@@ -12,11 +12,13 @@ var myPeer = new Peer(undefined, {
 const peers = {}
 
 let myVideoStream
+// eslint-disable-next-line promise/catch-or-return
 navigator.mediaDevices
   .getUserMedia({
     video: true,
     audio: true
   })
+  // eslint-disable-next-line promise/always-return
   .then(stream => {
     console.log("my stream", stream)
     //my video connection
@@ -81,6 +83,7 @@ const addVideoStream = (video, stream) => {
 }
 let text = $("input")
 $("html").keydown(e => {
+  // eslint-disable-next-line eqeqeq
   if (e.which == 13 && text.val().length !== 0) {
     socket.emit("message", text.val())
     text.val("")
@@ -150,6 +153,7 @@ function getURL() {
   console.log("test1")
   const c_url = window.location.href
   copyToClipboard(c_url)
+  // eslint-disable-next-line no-alert
   alert("Url Copied to Clipboard,\nShare it with your Friends!\nUrl: " + c_url)
 }
 

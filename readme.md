@@ -29,17 +29,9 @@ Run Server
 
     node server
 
-Server Started on Port 3001.
-
-Run PeerJS Server in separate terminal.
-
-    peerjs --port 3001
-
-PeerJS Server Started on Port 3001.
-
 ## Let's Start
 
-Open browser and go to http://localhost:3001/
+Open browser and go to https://video-webchat-backend.herokuapp.com/
 
 **Important :** Allow the camera and audio permissions asked by the browser.
 

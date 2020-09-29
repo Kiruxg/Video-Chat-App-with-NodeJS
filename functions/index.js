@@ -1,15 +1,16 @@
+const functions = require("firebase-functions")
 const express = require("express")
 const { v4: uuidv4 } = require("uuid")
 const app = express()
 const server = require("http").Server(app) //server for socketio
-const port = process.env.PORT || 3001 //heroku dev env or local env
+const port = process.env.PORT || 5001 //heroku dev env or local env
 const io = require("socket.io")(server)
 const { ExpressPeerServer } = require("peer") //realtime browser communication
 const peerServer = ExpressPeerServer(server, {
   debug: true
 })
 app.set("view engine", "ejs") //look in views folder
-app.use(express.static("public"))
+// app.use(express.static("public"))
 
 app.use("/peerjs", peerServer)
 //endpoints
@@ -37,4 +38,5 @@ io.on("connection", socket => {
     })
   })
 })
-server.listen(port)
+// server.listen(port)
+exports.app = functions.https.onRequest(app)
